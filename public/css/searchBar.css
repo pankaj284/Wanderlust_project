@@ -1,0 +1,44 @@
+.search-btn {
+    background-color: #fe424b;
+    color: white;
+}
+
+.search-btn:hover {
+    background-color: #fe424b;
+    color: white;
+}
+
+#search-input::placeholder {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.search-container {
+    position: relative;
+    background-color: white;
+}
+
+.cities {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+}
+
+.city-item {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.city-item:hover {
+    background-color: #f2f2f2;
+}

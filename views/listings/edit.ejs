@@ -1,0 +1,85 @@
+<%- layout("/layouts/boilerplate") %>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h1>Edit Listing</h1>
+
+            <form method="post" action="/listings/<%= listing._id %>/edit?_method=PUT" novalidate
+                class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+                    <div class="invalid-feedback">Enter Title</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control"
+                        required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Enter description</div>
+                </div>
+
+                <div class="mb-3">
+                    Original Image <br>
+                    <img src="<%= listing.image.url %>" alt="listing-img" id="originalImage"
+                        style="width:150px; height: 150px;">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imageInput" class="form-label">Add new Image</label>
+                    <input type="file" name="listing[image]" id="imageInput" class="form-control">
+                    <div class="invalid-feedback" id="errorMsg">Please choose the image</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+
+                    <select name="listing[category]" class="form-select form-select-sm"
+                        aria-label="Small select example" id="category" required>
+                        <option value="<%= listing.category %>" selected>
+                            <%=listing.category %>
+                        </option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Iconic Cities">Iconic Cities</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Castles">
+                            Castles</option>
+                        <option value="Pools">
+                            Pools</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Beach">Beach</option>
+                    </select>
+
+                    <div class="invalid-feedback">Select the category</div>
+
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]" value="<%= listing.price%>" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Enter valid price</div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="listing[location]" value="<%= listing.location %>" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Enter location</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control"
+                        required>
+                    <div class="invalid-feedback">Enter Country</div>
+                </div>
+
+                <button class="btn btn-primary edit-btn my-5">Edit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/imageSizeLimit.js"></script>
