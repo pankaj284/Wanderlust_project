@@ -92,11 +92,5 @@ router.delete(
     asyncWrap(listingController.destroyListing)
 )
 
-router.all("/{*splat}", (req, res, next) => {
-    next(new ExpressError(404, "Page Not Found!"));
-})
-
-
-
 
 module.exports = router;
